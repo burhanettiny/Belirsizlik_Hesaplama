@@ -57,11 +57,12 @@ def main():
         st.write("## Genel Sonuçlar")
         st.write(f"**Genel Ortalama:** {overall_avg:.4f}")
         st.latex(r"U_{genel} = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n(n-1)}}")
-        st.write(f"**Genel Belirsizlik:** {overall_uncertainty:.4f}")
-        st.latex(r"U_{exp,genel} = 2U_{genel}")
         st.write(f"**Genişletilmiş Genel Belirsizlik (k=2):** {expanded_overall_uncertainty:.4f}")
         st.write(f"**Günler Arası Tekrarlanabilirlik:** {repeatability_between_days:.4f}")
         st.write(f"**Güç İçi Tekrarlanabilirlik:** {repeatability_within_days:.4f}")
+        st.write(f"**Genel Belirsizlik:** {overall_uncertainty:.4f}")
+        st.latex(r"U_{exp,genel} = 2U_{genel}")
+        
 
 if __name__ == "__main__":
     main()
