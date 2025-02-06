@@ -11,20 +11,20 @@ def calculate_repeatability(measurements):
     return np.std(measurements, ddof=1) if len(measurements) > 1 else float('nan')
 
 def main():
-    st.title("Ölçüm Analiz Uygulaması")
+    st.title("Belirsizlik Hesaplama Uyguluması, B. Yalçınkaya")
     days = ['1. Gün', '2. Gün', '3. Gün']
     total_measurements = []
     uncertainty_components = []
     
     for day in days:
-        st.subheader(f"{day} İçin Ölçümleri Girin")
+        st.subheader(f"{day} Ölçüm Souçlarını Girin")
         measurements = []
         for i in range(5):
             value = st.number_input(f"{day} - Tekrar {i+1}", value=0.0, step=0.01, format="%.2f", key=f"{day}_{i}")
             measurements.append(value)
         total_measurements.append(measurements)
         
-        uncertainty_component = st.number_input(f"{day} İçin Ekstra Belirsizlik Bileşeni (Opsiyonel)", value=0.0, step=0.01, format="%.4f", key=f"unc_{day}")
+        uncertainty_component = st.number_input(f"{day}  Ekstra Belirsizlik Bileşeni (Opsiyonel)", value=0.0, step=0.01, format="%.4f", key=f"unc_{day}")
         uncertainty_components.append(uncertainty_component)
     
     if st.button("Sonuçları Hesapla"):
