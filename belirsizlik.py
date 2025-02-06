@@ -11,13 +11,13 @@ def calculate_repeatability(measurements):
     return np.std(measurements, ddof=1) if len(measurements) > 1 else float('nan')
 
 def main():
-    st.title("Ölçüm Analiz Uygulaması")
+    st.title("Belirsizlik Hesaplama; Developed by Burhanettin")
     days = ['1. Gün', '2. Gün', '3. Gün']
     total_measurements = []
     uncertainty_components = []
     
     for day in days:
-        st.subheader(f"{day} İçin Ölçümleri Girin")
+        st.subheader(f"{day} İçin Ölçüm Sonuçlarını Girin")
         measurements = []
         for i in range(5):
             value = st.number_input(f"{day} - Tekrar {i+1}", value=0.0, step=0.01, format="%.2f", key=f"{day}_{i}")
@@ -56,12 +56,12 @@ def main():
         
         st.write("## Genel Sonuçlar")
         st.write(f"**Genel Ortalama:** {overall_avg:.4f}")
-        st.latex(r"U_{genel} = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n(n-1)}}")
+        st.write(f"**Günler Arası Tekrarlanabilirlik:** {repeatability_between_days:.4f}")
+        st.write(f"**Güç İçi Tekrarlanabilirlik:** {repeatability_within_days:.4f}")
+         st.latex(r"U_{genel} = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n(n-1)}}")
         st.write(f"**Genel Belirsizlik:** {overall_uncertainty:.4f}")
         st.latex(r"U_{exp,genel} = 2U_{genel}")
         st.write(f"**Genişletilmiş Genel Belirsizlik (k=2):** {expanded_overall_uncertainty:.4f}")
-        st.write(f"**Günler Arası Tekrarlanabilirlik:** {repeatability_between_days:.4f}")
-        st.write(f"**Güç İçi Tekrarlanabilirlik:** {repeatability_within_days:.4f}")
 
 if __name__ == "__main__":
     main()
