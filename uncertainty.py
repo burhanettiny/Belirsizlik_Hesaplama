@@ -11,7 +11,7 @@ def calculate_repeatability(measurements):
     return np.std(measurements, ddof=1) if len(measurements) > 1 else float('nan')
 
 def main():
-    st.title("Belirsizlik Hesaplama Uygulaması, B. Yalçınkaya")
+    st.title("Belirsizlik Hesaplama Uygulamasızzzzzzz, B. Yalçınkaya")
     days = ['1. Gün', '2. Gün', '3. Gün']
     total_measurements = []
     uncertainty_components = []
